@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PlayerMovementController : MonoBehaviour
 {
+
+    public float borderX;
+    public float borderY;
     Rigidbody2D body;
 
     float horizontal;
@@ -14,25 +17,42 @@ public class PlayerMovementController : MonoBehaviour
 
     void Start ()
     {
-    body = GetComponent<Rigidbody2D>();
+        body = GetComponent<Rigidbody2D>();
     }
 
     void Update()
     {
     // Gives a value between -1 and 1
-    horizontal = Input.GetAxisRaw("Horizontal"); // -1 is left
-    vertical = Input.GetAxisRaw("Vertical"); // -1 is down
+        horizontal = Input.GetAxisRaw("Horizontal"); // -1 is left
+        vertical = Input.GetAxisRaw("Vertical"); // -1 is down
     }
 
     void FixedUpdate()
     {
-    if (horizontal != 0 && vertical != 0) // Check for diagonal movement
-    {
-        // limit movement speed diagonally, so you move at 70% speed
-        horizontal *= moveLimiter;
-        vertical *= moveLimiter;
-    } 
+        if (horizontal != 0 && vertical != 0) // Check for diagonal movement
+        {
+            // limit movement speed diagonally, so you move at 70% speed
+            horizontal *= moveLimiter;
+            vertical *= moveLimiter;
+        } 
 
-    body.velocity = new Vector2(horizontal * runSpeed, vertical * runSpeed);
+        body.velocity = new Vector2(horizontal * runSpeed, vertical * runSpeed);
+
+        if(transform.position.x<-borderX)
+        {
+            transform.position = new Vector2(-borderX, transform.position.y);
+        }
+        if(transform.position.x>borderX)
+        {
+            transform.position = new Vector2(borderX, transform.position.y);
+        }
+        if(transform.position.y<-borderY)
+        {
+            transform.position = new Vector2(transform.position.x, -borderY);
+        }
+        if(transform.position.y>borderY)
+        {
+            transform.position = new Vector2(transform.position.x, borderY);
+        }
     }
 }
