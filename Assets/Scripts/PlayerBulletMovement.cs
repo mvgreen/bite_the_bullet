@@ -18,6 +18,14 @@ public class PlayerBulletMovement : MonoBehaviour
         body.velocity = direction * speed;
     }
 
+    void Update()
+    {
+        if(damage < 1)
+        {
+            Destroy(gameObject);
+        }
+    }
+
     //wall bouncind
     void OnTriggerEnter2D(Collider2D col)
     {
