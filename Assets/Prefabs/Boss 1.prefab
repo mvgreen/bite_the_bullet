@@ -109,7 +109,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullets:
   - {fileID: 8939605755086420970, guid: a97e6e2f2a3c47c45a610015719b5020, type: 3}
-  health: 0
 --- !u!61 &1348399757
 BoxCollider2D:
   m_ObjectHideFlags: 0

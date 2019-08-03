@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 708c912670742d24ea16d1e8dac96956, type: 3}
-  m_Name: VerticalZigZag
+  m_Name: HorizontalLine
   m_EditorClassIdentifier: 
-  mode: 1
-  orientation: 1
+  mode: 0
+  orientation: 0
   direction: 1
-  Period: 1.36
-  Amplitude: 0.7
-  delta: 0.07
+  Period: 0.1
+  Amplitude: 0.1
+  delta: 0.1
