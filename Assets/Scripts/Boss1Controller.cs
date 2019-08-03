@@ -125,11 +125,11 @@ public class Boss1Controller : MonoBehaviour
 
         if(currentAttack == 5)
         {
-            if(cooldown < 2 - attackPhase*0.05f)
+            if(cooldown < 2 - attackPhase*0.1f)
             {
                 attackPhase++;
                 //shoot a spiral
-                shooter.Sprinkle(5, 180+attackPhase*9f, 2+attackPhase*0.01f, bullets[0]);
+                shooter.Sprinkle(5, 180+attackPhase*29f, 2+attackPhase*0.01f, bullets[0]);
             }
         }
 
