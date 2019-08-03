@@ -12,19 +12,24 @@ public class Boss1Controller : MonoBehaviour
     EnemyShooting shooter;
     GameObject player;
 
+    Vector3 speed;
+
     // Start is called before the first frame update
     void Start()
     {
         shooter = GetComponent<EnemyShooting>();
         player = GameObject.Find("Player");
+        speed = new Vector3(Random.Range(-2f,2f), Random.Range(-2f,2f), 0);
     }
 
     // Update is called once per frame
     void Update()
     {
+        //attacks
         cooldown -= Time.deltaTime;
         if(cooldown < 0)
         {
+            speed += new Vector3(Random.Range(-.4f,.4f), Random.Range(-.4f,.4f),0);
             if(Random.Range(1,8) < 2)
             {
                 currentAttack = 6;
@@ -64,6 +69,14 @@ public class Boss1Controller : MonoBehaviour
                 attackPhase = 0;
             }
         }
+
+        //movement
+        if(speed.magnitude > 1.6)
+        {
+            speed*=.9f;
+        }
+
+        transform.position += speed*Time.deltaTime;
 
         if(currentAttack == 1)
         {
@@ -127,6 +140,18 @@ public class Boss1Controller : MonoBehaviour
                 attackPhase++;
                 shooter.Sprinkle(12, Random.Range(0,180), 3+attackPhase*0.01f, 3, bullets[2]);
             }
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        if(col.tag == "Border Up" || col.tag == "Border Down")
+        {
+            speed = new Vector2(speed.x, -speed.y);
+        }
+        if(col.tag == "Border Left" || col.tag == "Border Right")
+        {
+            speed = new Vector2(-speed.x, speed.y);
         }
     }
 }

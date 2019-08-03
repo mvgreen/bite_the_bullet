@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1348399756}
   - component: {fileID: 1348399757}
   - component: {fileID: 2595726206709966155}
+  - component: {fileID: 1128206557}
   m_Layer: 0
   m_Name: Boss 1
   m_TagString: Enemy
@@ -112,6 +113,7 @@ MonoBehaviour:
   - {fileID: 8939605755086420970, guid: a97e6e2f2a3c47c45a610015719b5020, type: 3}
   - {fileID: 3808074168909602990, guid: 8f9bd2860b6aafa4c8b30fc6bb9a2b97, type: 3}
   - {fileID: 8939605755086420970, guid: 381c4dd7142ad1c40b99e78ce3db2b1b, type: 3}
+  currentAttack: 0
 --- !u!61 &1348399757
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -151,3 +153,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 350
+--- !u!50 &1128206557
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9063208853896478079}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

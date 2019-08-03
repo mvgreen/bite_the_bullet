@@ -351,6 +351,7 @@ GameObject:
   - component: {fileID: 1764743531653146992}
   - component: {fileID: 1764743531653146998}
   - component: {fileID: 393703878690100974}
+  - component: {fileID: 1616176735}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -390,6 +391,7 @@ MonoBehaviour:
   borderX: 8.6
   borderY: 4.7
   runSpeed: 4
+  graphics: {fileID: 1764743530681798467}
 --- !u!50 &1764743531653146999
 Rigidbody2D:
   serializedVersion: 4
@@ -439,8 +441,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e41632f155652b44898e39230a5822a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colorCharged: {r: 0.41491634, g: 0.7924528, b: 0.4884624, a: 1}
-  colorUncharged: {r: 0.78294027, g: 0.70980394, b: 0.81960785, a: 1}
   graphics: {fileID: 1764743530681798466}
   bulletPrefab: {fileID: 8939605755086420970, guid: 5f9cb4527f8320049bae483e53603ecf,
     type: 3}
@@ -493,3 +493,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &1616176735
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1764743531653146995}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1069035609f3b9846adc646c622e5e8e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
