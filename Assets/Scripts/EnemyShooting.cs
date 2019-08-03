@@ -11,6 +11,14 @@ public class EnemyShooting : MonoBehaviour
         bullet.GetComponent<EnemyBullet>().direction = direction;
         bullet.GetComponent<EnemyBullet>().speed = speed;
     }
+    public void Shoot(float angle, float speed, float angularSpeed, GameObject bulletPrefab)
+    {
+        Vector2 direction = new Vector2(Mathf.Sin(angle * Mathf.Deg2Rad), Mathf.Cos(angle * Mathf.Deg2Rad));
+        GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
+        bullet.transform.eulerAngles = new Vector3(0,0,angle);
+        bullet.GetComponent<EnemyBullet>().speed = speed;
+        bullet.GetComponent<EnemyBullet>().angularSpeed = angularSpeed;
+    }
 
     public void Sprinkle(int spread, float angle, float speed, GameObject bulletPrefab)
     {
@@ -20,6 +28,18 @@ public class EnemyShooting : MonoBehaviour
             GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
             bullet.GetComponent<EnemyBullet>().direction = direction;
             bullet.GetComponent<EnemyBullet>().speed = speed;
+        }
+    }
+
+    public void Sprinkle(int spread, float angle, float speed, float angularSpeed, GameObject bulletPrefab)
+    {
+        for(int i = 0; i < spread; i++)
+        {
+            Vector2 direction = new Vector2(Mathf.Sin((angle + (360/spread)*i) * Mathf.Deg2Rad), Mathf.Cos((angle + (360/spread)*i) * Mathf.Deg2Rad));
+            GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
+            bullet.transform.eulerAngles = new Vector3(0,0,angle + (360/spread)*i);
+            bullet.GetComponent<EnemyBullet>().speed = speed;
+            bullet.GetComponent<EnemyBullet>().angularSpeed = angularSpeed;
         }
     }
 }

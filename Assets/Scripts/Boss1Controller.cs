@@ -25,6 +25,13 @@ public class Boss1Controller : MonoBehaviour
         cooldown -= Time.deltaTime;
         if(cooldown < 0)
         {
+            if(Random.Range(1,5) < 2)
+            {
+                currentAttack = 4;
+                cooldown = 5f;
+                attackPhase = 0;
+            }
+            else 
             if(Random.Range(1,4) < 2)
             {
                 currentAttack = 3;
@@ -40,7 +47,7 @@ public class Boss1Controller : MonoBehaviour
             else
             {
                 currentAttack = 2;
-                cooldown = 5f;
+                cooldown = 2f;
                 attackPhase = 0;
             }
         }
@@ -57,7 +64,7 @@ public class Boss1Controller : MonoBehaviour
 
         if(currentAttack == 2)
         {
-            if(cooldown < 5 - attackPhase*0.2f)
+            if(cooldown < 2 - attackPhase*0.4f)
             {
                 attackPhase++;
                 //shoot at player
@@ -67,10 +74,26 @@ public class Boss1Controller : MonoBehaviour
 
         if(currentAttack == 3)
         {
-            if(cooldown < 5 - attackPhase*0.25f)
+            if(cooldown < 5 - attackPhase*0.4f)
             {
                 attackPhase++;
                 shooter.Sprinkle(10,180+attackPhase*9f, 4, bullets[0]);
+            }
+        }
+
+        if(currentAttack == 4)
+        {
+            if(cooldown < 5 - attackPhase*0.5f)
+            {
+                attackPhase++;
+                if(attackPhase%2==1)
+                {
+                    shooter.Sprinkle(8,180, 3, 20, bullets[1]);
+                }
+                else
+                {
+                    shooter.Sprinkle(8,180, 3, -20, bullets[1]);
+                }
             }
         }
     }

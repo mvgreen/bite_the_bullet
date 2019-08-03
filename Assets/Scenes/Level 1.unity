@@ -218,11 +218,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1348399755}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d7289d9794cee5746aa7f04e2ad45006, type: 3}
+  m_Script: {fileID: 11500000, guid: 88739551cd5e423498b7d7ee4053c807, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullets:
-  - {fileID: 8939605755086420970, guid: a97e6e2f2a3c47c45a610015719b5020, type: 3}
+  health: 250
 --- !u!1001 &1764743531651488619
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -428,17 +427,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 9063208853896478074, guid: 4acfad137d815794daa47b68fd2c05ee,
-        type: 3}
-      propertyPath: bulletPrefabs.Array.size
-      value: 1
+    - target: {fileID: 1348399756, guid: 4acfad137d815794daa47b68fd2c05ee, type: 3}
+      propertyPath: bullets.Array.size
+      value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 9063208853896478074, guid: 4acfad137d815794daa47b68fd2c05ee,
-        type: 3}
-      propertyPath: bulletPrefabs.Array.data[0]
+    - target: {fileID: 1348399756, guid: 4acfad137d815794daa47b68fd2c05ee, type: 3}
+      propertyPath: bullets.Array.data[1]
       value: 
-      objectReference: {fileID: 8939605755086420970, guid: a97e6e2f2a3c47c45a610015719b5020,
+      objectReference: {fileID: 3808074168909602990, guid: 8f9bd2860b6aafa4c8b30fc6bb9a2b97,
         type: 3}
-    m_RemovedComponents:
-    - {fileID: 9063208853896478075, guid: 4acfad137d815794daa47b68fd2c05ee, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4acfad137d815794daa47b68fd2c05ee, type: 3}

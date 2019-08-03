@@ -29,6 +29,11 @@ public class PlayerBulletMovement : MonoBehaviour
     //wall bouncind
     void OnTriggerEnter2D(Collider2D col)
     {
+        if(col.tag == "Enemy")
+        {
+            col.GetComponent<EnemyHealthHandling>().health -= damage;
+            Destroy(gameObject);
+        }
         if(col.tag == "Border Up" || col.tag == "Border Down")
         {
             body.velocity = new Vector2(body.velocity.x, -body.velocity.y);
