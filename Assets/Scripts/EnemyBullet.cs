@@ -8,4 +8,5 @@ public class EnemyBullet : MonoBehaviour
     public Vector2 direction;
     public float speed = 7;
     public float angularSpeed = 7;
+    public int life = 7;
 }

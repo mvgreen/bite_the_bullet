@@ -6,7 +6,7 @@ public class Boss1Controller : MonoBehaviour
 {
     public GameObject[] bullets;
 
-    int currentAttack = 0;
+    public int currentAttack = 0;
     float cooldown = 2;
     int attackPhase = 0;
     EnemyShooting shooter;
@@ -25,6 +25,19 @@ public class Boss1Controller : MonoBehaviour
         cooldown -= Time.deltaTime;
         if(cooldown < 0)
         {
+            if(Random.Range(1,8) < 2)
+            {
+                currentAttack = 6;
+                cooldown = 3f;
+                attackPhase = 0;
+            }
+            else if(Random.Range(1,8) < 2)
+            {
+                currentAttack = 5;
+                cooldown = 2f;
+                attackPhase = 0;
+            }
+            else 
             if(Random.Range(1,5) < 2)
             {
                 currentAttack = 4;
@@ -88,12 +101,31 @@ public class Boss1Controller : MonoBehaviour
                 attackPhase++;
                 if(attackPhase%2==1)
                 {
-                    shooter.Sprinkle(8,180, 3, 20, bullets[1]);
+                    shooter.Sprinkle(8,180, 3, 20f, bullets[1]);
                 }
                 else
                 {
-                    shooter.Sprinkle(8,180, 3, -20, bullets[1]);
+                    shooter.Sprinkle(8,180, 3, -20f, bullets[1]);
                 }
+            }
+        }
+
+        if(currentAttack == 5)
+        {
+            if(cooldown < 2 - attackPhase*0.05f)
+            {
+                attackPhase++;
+                //shoot a spiral
+                shooter.Sprinkle(5, 180+attackPhase*9f, 2+attackPhase*0.01f, bullets[0]);
+            }
+        }
+
+        if(currentAttack == 6)
+        {
+            if(attackPhase==0)
+            {
+                attackPhase++;
+                shooter.Sprinkle(12, Random.Range(0,180), 3+attackPhase*0.01f, 3, bullets[2]);
             }
         }
     }
