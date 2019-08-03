@@ -24,8 +24,8 @@ public class PredictorEnemyController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if(shootTimer >= ShotDelay) {
-            TryShoot();
+        if (shootTimer >= ShotDelay) {
+            Shoot();
             shootTimer = 0;
         }
         shootTimer += Time.fixedDeltaTime;   
@@ -47,12 +47,13 @@ public class PredictorEnemyController : MonoBehaviour
         return PredictedPosition;
     }
 
-    void TryShoot()
+    void Shoot()
     {
         Vector3 rot = PredictPostition();
         transform.up = rot - transform.position;
         GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
-        bullet.GetComponent<PlayerBulletMovement>().direction = transform.up.normalized;
+        bullet.GetComponent<EnemyBullet>().direction = transform.up.normalized;
         
     }
+
 }
