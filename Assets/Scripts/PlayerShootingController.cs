@@ -6,8 +6,7 @@ public class PlayerShootingController : MonoBehaviour
 {
 
     bool isCharged = true;
-    public Color colorCharged;
-    public Color colorUncharged;
+    Animator anim;
 
     public SpriteRenderer graphics;
 
@@ -16,25 +15,18 @@ public class PlayerShootingController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(isCharged)
-        {
-            graphics.color = colorCharged;
-        }
-        else
-        {
-            graphics.color = colorUncharged;
-        }
 
         if(Input.GetButton("Fire"))
         {
             if(isCharged)
             {
+                anim.SetTrigger("Fire");
                 GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
                 bullet.GetComponent<PlayerBulletMovement>().direction = transform.up.normalized;
                 isCharged = false;
@@ -46,6 +38,7 @@ public class PlayerShootingController : MonoBehaviour
     {
         if(!isCharged)
         {
+            anim.SetTrigger("Catch");
             isCharged = true;
         }
         else

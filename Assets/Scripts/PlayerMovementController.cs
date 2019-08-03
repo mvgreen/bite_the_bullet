@@ -14,6 +14,7 @@ public class PlayerMovementController : MonoBehaviour
     float moveLimiter = 0.7f;
 
     public float runSpeed = 20.0f;
+    public Transform graphics;
 
     void Start ()
     {
@@ -30,6 +31,15 @@ public class PlayerMovementController : MonoBehaviour
         Vector3 mousePos = Input.mousePosition;
         mousePos = Camera.main.ScreenToWorldPoint(mousePos);
         Vector2 direction = new Vector2(mousePos.x - transform.position.x,mousePos.y - transform.position.y);
+        if(mousePos.x>transform.position.x)
+        {
+            graphics.localScale = new Vector3(0.04f,0.04f,1f);
+        }
+        else
+        {
+            graphics.localScale = new Vector3(0.04f,-0.04f,1f);
+        }
+
         transform.up = direction;
     }
 
