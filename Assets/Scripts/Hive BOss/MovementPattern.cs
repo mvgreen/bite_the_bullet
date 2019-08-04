@@ -8,7 +8,9 @@ public class MovementPattern : ScriptableObject
     public enum Modes
     {
         Sine,
-        ZigZagSine
+        ZigZagSine,
+        Porabolic
+
     };
 
     public enum Orientations
@@ -30,6 +32,7 @@ public class MovementPattern : ScriptableObject
     public float Period = 1;
     [Range(0, 10)]
     public float Amplitude = 1;
+    public float a, b, c;
 
     //Speed per se
     public float delta = 0.01f;
