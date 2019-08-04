@@ -144,7 +144,7 @@ public class Boss1Controller : MonoBehaviour
             {
                 attackPhase++;
                 //shoot a spiral
-                shooter.Sprinkle(5, 180+attackPhase*29f, 2+attackPhase*0.01f, bullets[0]);
+                shooter.Sprinkle(5, 180+attackPhase*29f, 2, bullets[0]);
             }
         }
 
@@ -153,7 +153,7 @@ public class Boss1Controller : MonoBehaviour
             if(attackPhase==0)
             {
                 attackPhase++;
-                shooter.Sprinkle(12, Random.Range(0,180), 3+attackPhase*0.01f, 3, bullets[2]);
+                shooter.Sprinkle(12, Random.Range(0,180), 3, 3, bullets[2]);
             }
         }
     }

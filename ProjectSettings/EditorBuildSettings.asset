@@ -14,4 +14,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Credits.unity
     guid: 91b48084fe5c3c245bca48e3046ce492
+  - enabled: 1
+    path: Assets/Scenes/Final Boss.unity
+    guid: ee7fb70bc7ec1524eb59f2951eb98df7
+  - enabled: 1
+    path: Assets/Scenes/Level swarm.unity
+    guid: 724c83856a9be6d44b81c9c81ec6a3b7
+  - enabled: 1
+    path: Assets/Scenes/TeleporterBoss.unity
+    guid: ac4d47fa192bcc244837b109ddb8d5f2
+  - enabled: 1
+    path: Assets/Scenes/Tutorial.unity
+    guid: 9528a1ee939eccc42a40527cf36593bc
   m_configObjects: {}
