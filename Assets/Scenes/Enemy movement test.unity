@@ -693,36 +693,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Youngling
       objectReference: {fileID: 0}
-    - target: {fileID: 5475962875506541177, guid: 29a14473aa2fd2246af97ec6426b9b7e,
-        type: 3}
-      propertyPath: XBorder
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 5475962875506541177, guid: 29a14473aa2fd2246af97ec6426b9b7e,
-        type: 3}
-      propertyPath: YBorder
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 5475962875506541177, guid: 29a14473aa2fd2246af97ec6426b9b7e,
-        type: 3}
-      propertyPath: StayTimer
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5475962875506541177, guid: 29a14473aa2fd2246af97ec6426b9b7e,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5475962875506541177, guid: 29a14473aa2fd2246af97ec6426b9b7e,
-        type: 3}
-      propertyPath: speed
-      value: 0.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 5475962875506541177, guid: 29a14473aa2fd2246af97ec6426b9b7e,
-        type: 3}
-      propertyPath: RelocationTimer
-      value: 0.6
-      objectReference: {fileID: 0}
     - target: {fileID: 5534011125568340802, guid: 29a14473aa2fd2246af97ec6426b9b7e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -778,11 +748,5 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5534011125568340807, guid: 29a14473aa2fd2246af97ec6426b9b7e,
-        type: 3}
-      propertyPath: MP
-      value: 
-      objectReference: {fileID: 11400000, guid: bb63040720673eb4680037bb653a9419,
-        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 29a14473aa2fd2246af97ec6426b9b7e, type: 3}

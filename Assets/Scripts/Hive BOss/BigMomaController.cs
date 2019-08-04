@@ -1,13 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System;
+
 
 public class BigMomaController : MonoBehaviour
 {
     public GameObject spawnPoint1, spawnPoint2;
     public Transform[] MomaSpawnPoints;
-    public GameObject Youngling;
+    public GameObject[] Younglings;
 
 
     private int CurrentSpawnPoint;
@@ -26,8 +26,11 @@ public class BigMomaController : MonoBehaviour
 
     public void SpawnYounglings1()
     {
-        Instantiate(Youngling, spawnPoint1.transform.position, Quaternion.identity);
-        Instantiate(Youngling, spawnPoint2.transform.position, Quaternion.identity);
+        Random.InitState(System.DateTime.Now.Millisecond);
+        int rand = Random.Range(0, 2);
+        Instantiate(Younglings[rand], spawnPoint1.transform.position, Quaternion.identity);
+        rand = Random.Range(0, 2);
+        Instantiate(Younglings[rand], spawnPoint2.transform.position, Quaternion.identity);
         YounglingCount += 2;
         UpdateYounglignsCount();
     }
@@ -41,12 +44,12 @@ public class BigMomaController : MonoBehaviour
     public void TeleportMom()
     {
 
-        UnityEngine.Random.InitState(System.DateTime.Now.Millisecond);
-        int index = UnityEngine.Random.Range(0, 4);
+        Random.InitState(System.DateTime.Now.Millisecond);
+        int index = Random.Range(0, 4);
         Transform NewLocation = MomaSpawnPoints[index].transform;
-        if(index == CurrentSpawnPoint && UnityEngine.Random.Range(0,1) <= 0.85f)
+        if(index == CurrentSpawnPoint && Random.Range(0,1) <= 0.85f)
         {
-            index = UnityEngine.Random.Range(0, 4);
+            index = Random.Range(0, 4);
             NewLocation = MomaSpawnPoints[index].transform;
         }
         CurrentSpawnPoint = index;
@@ -57,7 +60,7 @@ public class BigMomaController : MonoBehaviour
 
     public void Roll()
     {
-        UnityEngine.Random.InitState(System.DateTime.Now.Millisecond);
+        Random.InitState(System.DateTime.Now.Millisecond);
         float rand = 100 - YounglingCount * 15f;
         GetComponent<Animator>().SetFloat("Roll", rand);
     }
