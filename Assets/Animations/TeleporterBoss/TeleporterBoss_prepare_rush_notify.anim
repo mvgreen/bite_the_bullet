@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: TeleporterBoss_enter
+  m_Name: TeleporterBoss_prepare_rush_notify
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,15 +20,7 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 21300000, guid: 994d341b95567f54cae04ba63455b955, type: 3}
-    - time: 0.25
-      value: {fileID: 21300000, guid: aa3548b656b4d6e4486ffb483f5d9f79, type: 3}
-    - time: 0.5
-      value: {fileID: 21300000, guid: 6e7427e52e729fe46b587f5a950d97aa, type: 3}
-    - time: 0.75
-      value: {fileID: 21300000, guid: 994d341b95567f54cae04ba63455b955, type: 3}
-    - time: 0.98333335
-      value: {fileID: 21300000, guid: 994d341b95567f54cae04ba63455b955, type: 3}
+      value: {fileID: 21300000, guid: 2c050a2ca45845c4c9a38a2da996af59, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -48,17 +40,13 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 21300000, guid: 994d341b95567f54cae04ba63455b955, type: 3}
-    - {fileID: 21300000, guid: aa3548b656b4d6e4486ffb483f5d9f79, type: 3}
-    - {fileID: 21300000, guid: 6e7427e52e729fe46b587f5a950d97aa, type: 3}
-    - {fileID: 21300000, guid: 994d341b95567f54cae04ba63455b955, type: 3}
-    - {fileID: 21300000, guid: 994d341b95567f54cae04ba63455b955, type: 3}
+    - {fileID: 21300000, guid: 2c050a2ca45845c4c9a38a2da996af59, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 1
+    m_StopTime: 0.016666668
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -79,7 +67,7 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0
-    functionName: onEnteringArena
+    functionName: onPreparingRush
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
