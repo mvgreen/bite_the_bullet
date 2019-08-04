@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8939605755086420759}
   - component: {fileID: 1741824376005413579}
   - component: {fileID: 7194479449224168274}
+  - component: {fileID: 1266669065570726628}
   m_Layer: 0
   m_Name: BouncyEnemyBullet
   m_TagString: Bullet
@@ -152,3 +153,15 @@ MonoBehaviour:
   speed: 7
   angularSpeed: 7
   life: 7
+--- !u!114 &1266669065570726628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8939605755086420970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 343608ffcee84ee449d2d520f0766a28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

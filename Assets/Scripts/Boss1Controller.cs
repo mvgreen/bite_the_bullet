@@ -71,11 +71,26 @@ public class Boss1Controller : MonoBehaviour
         }
 
         //movement
-        if(speed.magnitude > 1.6)
+        if(speed.magnitude > 1.2)
         {
             speed*=.9f;
         }
-
+        if(transform.position.x<-8)
+        {
+            speed+=new Vector3(.1f,0,0);
+        }
+        if(transform.position.x>8)
+        {
+            speed+=new Vector3(-.1f,0,0);
+        }
+        if(transform.position.y<-4.5)
+        {
+            speed+=new Vector3(0,.1f,0);
+        }
+        if(transform.position.y>4.5)
+        {
+            speed+=new Vector3(0,-.1f,0);
+        }
         transform.position += speed*Time.deltaTime;
 
         if(currentAttack == 1)
@@ -125,11 +140,11 @@ public class Boss1Controller : MonoBehaviour
 
         if(currentAttack == 5)
         {
-            if(cooldown < 2 - attackPhase*0.05f)
+            if(cooldown < 2 - attackPhase*0.1f)
             {
                 attackPhase++;
                 //shoot a spiral
-                shooter.Sprinkle(5, 180+attackPhase*9f, 2+attackPhase*0.01f, bullets[0]);
+                shooter.Sprinkle(5, 180+attackPhase*29f, 2+attackPhase*0.01f, bullets[0]);
             }
         }
 
@@ -140,18 +155,6 @@ public class Boss1Controller : MonoBehaviour
                 attackPhase++;
                 shooter.Sprinkle(12, Random.Range(0,180), 3+attackPhase*0.01f, 3, bullets[2]);
             }
-        }
-    }
-
-    void OnTriggerEnter2D(Collider2D col)
-    {
-        if(col.tag == "Border Up" || col.tag == "Border Down")
-        {
-            speed = new Vector2(speed.x, -speed.y);
-        }
-        if(col.tag == "Border Left" || col.tag == "Border Right")
-        {
-            speed = new Vector2(-speed.x, speed.y);
         }
     }
 }

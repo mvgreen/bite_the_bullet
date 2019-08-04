@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerShootingController : MonoBehaviour
 {
@@ -12,6 +13,8 @@ public class PlayerShootingController : MonoBehaviour
 
     public GameObject bulletPrefab;
 
+    public Text text;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,7 +25,7 @@ public class PlayerShootingController : MonoBehaviour
     void Update()
     {
 
-        if(Input.GetButton("Fire"))
+        if(Input.GetButtonDown("Fire"))
         {
             if(isCharged)
             {
@@ -43,7 +46,14 @@ public class PlayerShootingController : MonoBehaviour
         }
         else
         {
-            //the player dies
+            Die();
         }
+    }
+
+    public void Die()
+    {
+        int currentNumber = int.Parse(text.text);
+        currentNumber++;
+        text.text = "" + currentNumber;
     }
 }
