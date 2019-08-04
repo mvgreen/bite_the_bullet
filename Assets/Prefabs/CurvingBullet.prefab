@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3808074168909602988}
   - component: {fileID: 3808074168909602991}
   - component: {fileID: 7699364214310469942}
+  - component: {fileID: 8063912994657314698}
   m_Layer: 0
   m_Name: CurvingBullet
   m_TagString: Untagged
@@ -48,6 +49,7 @@ MonoBehaviour:
   direction: {x: 0, y: 0}
   speed: 7
   angularSpeed: 7
+  life: 7
 --- !u!114 &7699364214310469942
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -58,6 +60,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9267b2cd4974cb44e9e5c5957f7d2864, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8063912994657314698
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3808074168909602990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 343608ffcee84ee449d2d520f0766a28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &3808074168132693350

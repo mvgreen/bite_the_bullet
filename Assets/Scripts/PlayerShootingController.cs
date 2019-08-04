@@ -22,7 +22,7 @@ public class PlayerShootingController : MonoBehaviour
     void Update()
     {
 
-        if(Input.GetButton("Fire"))
+        if(Input.GetButtonDown("Fire"))
         {
             if(isCharged)
             {
@@ -43,7 +43,12 @@ public class PlayerShootingController : MonoBehaviour
         }
         else
         {
-            //the player dies
+            Die();
         }
+    }
+
+    public void Die()
+    {
+        Debug.Log("I'm a dead boi now");
     }
 }

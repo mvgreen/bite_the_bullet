@@ -237,6 +237,7 @@ GameObject:
   - component: {fileID: 1128206551}
   - component: {fileID: 997689385843825676}
   - component: {fileID: 7209079052054613576}
+  - component: {fileID: 3987318525910154989}
   m_Layer: 0
   m_Name: Boss 1
   m_TagString: Enemy
@@ -386,3 +387,15 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.23
+--- !u!114 &3987318525910154989
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9063208853896478079}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 343608ffcee84ee449d2d520f0766a28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
