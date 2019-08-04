@@ -365,6 +365,10 @@ PrefabInstance:
       propertyPath: m_Size.y
       value: 1.6538637
       objectReference: {fileID: 0}
+    - target: {fileID: 1572156078, guid: 5ed45b7c43cca7949b8acb4c6cfb237e, type: 3}
+      propertyPath: score
+      value: 
+      objectReference: {fileID: 2104911234}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5ed45b7c43cca7949b8acb4c6cfb237e, type: 3}
 --- !u!1 &681924807 stripped
@@ -536,43 +540,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   profile: {fileID: 11400000, guid: 11279e6029307414d928bada982e30c8, type: 2}
---- !u!1 &1572156072 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2664010653268926370, guid: 5ed45b7c43cca7949b8acb4c6cfb237e,
-    type: 3}
-  m_PrefabInstance: {fileID: 655635086}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1572156077
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1572156072}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e5835de3b1677a745a6fe812f3c531a5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  graphics: {fileID: 1745201866}
-  bulletSpeed: 7
-  bulletPrefab: {fileID: 8939605755086420970, guid: a97e6e2f2a3c47c45a610015719b5020,
-    type: 3}
---- !u!114 &1572156078
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1572156072}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 88739551cd5e423498b7d7ee4053c807, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  score: {fileID: 2104911234}
-  health: 350
-  bossIndex: 0
 --- !u!114 &1599801435 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8692885445359551840, guid: 40cc7d248b7ca194a85c5a2a0bf63f9f,
@@ -652,24 +619,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1764743531653146992, guid: 9142df511139fde449bedd11d6f6f30d,
-        type: 3}
-      propertyPath: m_IsTrigger
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1764743531653146998, guid: 9142df511139fde449bedd11d6f6f30d,
         type: 3}
       propertyPath: text
       value: 
       objectReference: {fileID: 1599801435}
+    - target: {fileID: 1764743531653146992, guid: 9142df511139fde449bedd11d6f6f30d,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9142df511139fde449bedd11d6f6f30d, type: 3}
---- !u!212 &1745201866 stripped
-SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: 2664010654508972435, guid: 5ed45b7c43cca7949b8acb4c6cfb237e,
-    type: 3}
-  m_PrefabInstance: {fileID: 655635086}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2099710305
 PrefabInstance:
   m_ObjectHideFlags: 0

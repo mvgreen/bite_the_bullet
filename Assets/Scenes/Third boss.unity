@@ -456,7 +456,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88739551cd5e423498b7d7ee4053c807, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  score: {fileID: 0}
+  score: {fileID: 1255152517}
   health: 350
   bossIndex: 3
 --- !u!114 &974213427
@@ -553,6 +553,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
+--- !u!114 &1255152517 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8692885444791937209, guid: 40cc7d248b7ca194a85c5a2a0bf63f9f,
+    type: 3}
+  m_PrefabInstance: {fileID: 218111139}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1307972932
 GameObject:
   m_ObjectHideFlags: 0
@@ -663,7 +675,7 @@ SpriteRenderer:
   m_Size: {x: 1.1693333, y: 1.6538637}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1001 &712667003545917239
