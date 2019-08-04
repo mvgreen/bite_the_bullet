@@ -12,9 +12,11 @@ GameObject:
   - component: {fileID: 2664010653268926374}
   - component: {fileID: 2664010653268926369}
   - component: {fileID: 4361128721381023262}
+  - component: {fileID: 1572156077}
+  - component: {fileID: 1572156078}
   m_Layer: 0
   m_Name: TeleporterBoss
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -65,12 +67,12 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.044468403, y: 0.2518704}
   serializedVersion: 2
-  m_Radius: 0.2
+  m_Radius: 0.6295073
 --- !u!114 &4361128721381023262
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -85,16 +87,50 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mode: 0
   player: {fileID: 0}
-  orbitPrefab: {fileID: 0}
-  markerPrefab: {fileID: 0}
+  orbitPrefab: {fileID: 5064957755703708814, guid: da650d76fbfc2444baa291dcf9b02639,
+    type: 3}
+  markerPrefab: {fileID: 7732785980788383401, guid: c7daa0f8eea15684896e921a92eb230c,
+    type: 3}
+  graphics: {fileID: 2664010654508972445}
   radialSpeedMultiplier: 1
-  sizeMultiplier: 3
+  sizeMultiplier: 2
   unitRadius: 3
   defaultSpeed: 1.3
-  radiusReductionSpeed: 0
-  rushSpeed: 0
-  shootingCooldown: 0
+  radiusReductionSpeed: 0.002
+  rushSpeed: 20
+  shootingCooldown: 0.5
   time: 0
+--- !u!114 &1572156077
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2664010653268926370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5835de3b1677a745a6fe812f3c531a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  graphics: {fileID: 2664010654508972435}
+  bulletSpeed: 7
+  bulletPrefab: {fileID: 8939605755086420970, guid: a97e6e2f2a3c47c45a610015719b5020,
+    type: 3}
+--- !u!114 &1572156078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2664010653268926370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88739551cd5e423498b7d7ee4053c807, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  score: {fileID: 0}
+  health: 250
+  bossIndex: 2
 --- !u!1 &2664010654508972445
 GameObject:
   m_ObjectHideFlags: 0
@@ -166,12 +202,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 994d341b95567f54cae04ba63455b955, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.16, y: 0.16}
+  m_Size: {x: 1.1693333, y: 1.6538637}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -187,7 +223,7 @@ Animator:
   m_GameObject: {fileID: 2664010654508972445}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 38618c02c297f0148b3c6473375528b6, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

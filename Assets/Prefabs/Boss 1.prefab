@@ -352,6 +352,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   score: {fileID: 0}
   health: 350
+  bossIndex: 1
 --- !u!95 &997689385843825676
 Animator:
   serializedVersion: 3

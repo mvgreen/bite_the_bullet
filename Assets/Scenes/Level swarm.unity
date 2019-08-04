@@ -835,6 +835,11 @@ PrefabInstance:
       propertyPath: score
       value: 
       objectReference: {fileID: 530730889}
+    - target: {fileID: 6902645159395938208, guid: 9b40df6ca7d090e438e4df5f84e195e2,
+        type: 3}
+      propertyPath: bossIndex
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6902645159395938214, guid: 9b40df6ca7d090e438e4df5f84e195e2,
         type: 3}
       propertyPath: m_IsTrigger
