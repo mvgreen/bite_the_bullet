@@ -137,7 +137,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1764743530271157943
 Transform:
   m_ObjectHideFlags: 0
@@ -444,6 +444,7 @@ MonoBehaviour:
   graphics: {fileID: 1764743530681798466}
   bulletPrefab: {fileID: 8939605755086420970, guid: 5f9cb4527f8320049bae483e53603ecf,
     type: 3}
+  text: {fileID: 0}
 --- !u!212 &393703878690100974
 SpriteRenderer:
   m_ObjectHideFlags: 0
