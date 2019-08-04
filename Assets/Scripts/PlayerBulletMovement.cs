@@ -25,7 +25,9 @@ public class PlayerBulletMovement : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
     }
+
 
     //wall bouncind
     void OnTriggerEnter2D(Collider2D col)

@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 708c912670742d24ea16d1e8dac96956, type: 3}
-  m_Name: VerticalLine
+  m_Name: Porabolic
   m_EditorClassIdentifier: 
   mode: 2
-  orientation: 1
+  orientation: 0
   direction: -1
   Period: 1
-  Amplitude: 0.01
-  a: 0.5
+  Amplitude: 1
+  a: -0.03
   b: 0
   c: 0
   delta: 0.1

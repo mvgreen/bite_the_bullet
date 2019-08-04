@@ -56,7 +56,7 @@ AnimationClip:
         outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
       - serializedVersion: 3
         time: 0.73333335
-        value: {x: 0, y: -1.8082936, z: 0}
+        value: {x: 0, y: -2.3358662, z: 0}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
@@ -73,19 +73,19 @@ AnimationClip:
         inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
         outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
       - serializedVersion: 3
-        time: 1.1666666
-        value: {x: 0, y: -1.8437161, z: 0}
-        inSlope: {x: 0, y: -0.56111807, z: 0}
-        outSlope: {x: 0, y: -0.56111807, z: 0}
+        time: 1.15
+        value: {x: 0, y: -2.7589993, z: 0}
+        inSlope: {x: 0, y: 0, z: 0}
+        outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
         weightedMode: 0
         inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
         outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
       - serializedVersion: 3
         time: 1.2333333
-        value: {x: 0, y: -1.8829197, z: 0}
-        inSlope: {x: 0, y: -0.32769284, z: 0}
-        outSlope: {x: 0, y: -0.32769284, z: 0}
+        value: {x: 0, y: -1.9504813, z: 0}
+        inSlope: {x: 0, y: 7.2766514, z: 0}
+        outSlope: {x: 0, y: 7.2766514, z: 0}
         tangentMode: 0
         weightedMode: 0
         inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
@@ -211,7 +211,7 @@ AnimationClip:
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 0.73333335
-        value: -1.8082936
+        value: -2.3358662
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -228,10 +228,10 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 1.1666666
-        value: -1.8437161
-        inSlope: -0.56111807
-        outSlope: -0.56111807
+        time: 1.15
+        value: -2.7589993
+        inSlope: 0
+        outSlope: 0
         tangentMode: 136
         weightedMode: 0
         inWeight: 0.33333334
@@ -284,22 +284,8 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
-  - time: 0.35
+  - time: 1.1666666
     functionName: SpawnYounglings1
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 0.73333335
-    functionName: SpawnYounglings2
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 1.2
-    functionName: SpawnYounglings3
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

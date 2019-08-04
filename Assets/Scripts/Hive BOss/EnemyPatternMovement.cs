@@ -10,8 +10,6 @@ public class EnemyPatternMovement : MonoBehaviour
     public MovementPattern.Orientations orientation;
     public MovementPattern.Modes mode;
     public Vector3 MovementAxis;
-    public float XBorder;
-    public float YBorder;
 
     private void Start()
     {
@@ -35,36 +33,38 @@ public class EnemyPatternMovement : MonoBehaviour
             coord1 = v.x;
         else
             coord1 = v.y;
-
+        coord1 += MP.delta * direction;
         if (mode == MovementPattern.Modes.Sine)
         {
-            coord2 = Mathf.Sin((coord1 + MP.delta *direction)* MP.Period)* MP.Amplitude;
+            coord2 = Mathf.Sin((coord1)* MP.Period)* MP.Amplitude;
         }
         if(mode == MovementPattern.Modes.ZigZagSine){
-            coord2 = Mathf.Asin(Mathf.Sin((coord1 + MP.delta *direction) * MP.Period)) *MP.Amplitude;
+            coord2 = Mathf.Asin(Mathf.Sin((coord1) * MP.Period)) *MP.Amplitude;
         }
-
+        if(mode == MovementPattern.Modes.Porabolic)
+        {
+            coord2 = MP.a * coord1 * coord1 + MP.b * coord1 + MP.c;
+        }
+        
         if (orientation == MovementPattern.Orientations.horizontal) {
-            if (Mathf.Abs(Mathf.Abs(transform.position.x) - XBorder) <= 0.1)
-                direction *= -1;
-            v.x = coord1 + MP.delta* direction;
+            
+            v.x = coord1;
             v.y = coord2 + MovementAxis.y;
         }
         else
         {
-            if (Mathf.Abs(Mathf.Abs(transform.position.y) - YBorder) <= 0.1)
-                direction *= -1;
+            
             v.x = coord2 + MovementAxis.x;
-            v.y = coord1 + MP.delta * direction;
+            v.y = coord1;
         }
 
         transform.position = v;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision) { 
-        if (collision.gameObject.tag == "Border Up" || collision.gameObject.tag == "Border Right" || collision.gameObject.tag == "Border Down" || collision.gameObject.tag == "Border Left")
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.tag == "Border Up" || col.tag == "Border Down" || col.tag == "Border Right" || col.tag == "Border Left")
         {
-            
             direction *= -1;
         }
     }
