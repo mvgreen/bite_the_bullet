@@ -36,4 +36,9 @@ public class MovementPattern : ScriptableObject
 
     //Speed per se
     public float delta = 0.01f;
+
+    public void InvertDirection()
+    {
+        direction = (Directions)(-1 * (int)direction);
+    }
 }

@@ -33,8 +33,10 @@ public class BigMomaController : MonoBehaviour
         }
         Youngling.GetComponent<EnemyPatternMovement>().MP = MP;
         Instantiate(Youngling, spawnPoint1.transform.position, Quaternion.identity);
+        MP.InvertDirection();
         Instantiate(Youngling, spawnPoint2.transform.position, Quaternion.identity);
-        Debug.Log(GetComponent<Animator>().GetParameter(0));
+        YounglingCount += 2;
+        GetComponent<Animator>().SetInteger("Youngling Coung", YounglingCount);
     }
 
 

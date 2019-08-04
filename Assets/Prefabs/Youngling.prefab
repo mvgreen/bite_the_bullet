@@ -95,8 +95,9 @@ GameObject:
   - component: {fileID: 5534011125568340806}
   - component: {fileID: 3194929726108797609}
   - component: {fileID: 271233147716217562}
+  - component: {fileID: -8655194101213017542}
   m_Layer: 0
-  m_Name: Youngling 1
+  m_Name: Youngling
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -251,3 +252,15 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
+--- !u!114 &-8655194101213017542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5534011125568340805}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 338c352429628e747bb87239ba5be85a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
