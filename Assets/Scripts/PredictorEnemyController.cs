@@ -15,6 +15,8 @@ public class PredictorEnemyController : MonoBehaviour
     //timer
     public float shootTimer;
 
+    private float enemyShootAngle;
+
 
     private void Start()
     {
@@ -25,7 +27,7 @@ public class PredictorEnemyController : MonoBehaviour
     private void FixedUpdate()
     {
         if (shootTimer >= ShotDelay) {
-            Shoot();
+            Shoot1();
             shootTimer = 0;
         }
         shootTimer += Time.fixedDeltaTime;   
@@ -43,17 +45,26 @@ public class PredictorEnemyController : MonoBehaviour
             return playerPosition;
         }
         float enemyShootAngle = Mathf.Asin(Mathf.Sin(playerMoveAngle) * playerVelocity.magnitude / BulletSpeed);
+        
         Vector3 PredictedPosition =playerPosition + playerVelocity * offset.magnitude / Mathf.Sin(Mathf.PI - playerMoveAngle - enemyShootAngle) * Mathf.Sin(enemyShootAngle) / playerVelocity.magnitude;
         return PredictedPosition;
     }
 
+    void Shoot1()
+    {
+        Vector3 rot = PredictPostition();
+        transform.up = rot - transform.position;
+        GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
+        bullet.GetComponent<EnemyBullet>().direction = transform.up.normalized;
+        transform.up = Vector2.up;
+
+    }
     void Shoot()
     {
         Vector3 rot = PredictPostition();
         transform.up = rot - transform.position;
         GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
         bullet.GetComponent<EnemyBullet>().direction = transform.up.normalized;
-        
-    }
 
+    }
 }
