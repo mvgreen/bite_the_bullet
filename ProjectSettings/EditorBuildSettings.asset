@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/__DELETED_GUID_Trash/0e4734bbdbf054e4899f894cd37b42b4
     guid: 0e4734bbdbf054e4899f894cd37b42b4
   - enabled: 1
+    path: Assets/Scenes/Menu.unity
+    guid: b10dff0b9e444c0419b9b2a028e2a989
+  - enabled: 1
     path: Assets/Scenes/Level 1.unity
     guid: 7b2610464c3567a4eae63e56393aea50
   - enabled: 1
@@ -26,7 +29,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Tutorial.unity
     guid: 9528a1ee939eccc42a40527cf36593bc
-  - enabled: 1
-    path: Assets/Scenes/Menu.unity
-    guid: b10dff0b9e444c0419b9b2a028e2a989
   m_configObjects: {}
