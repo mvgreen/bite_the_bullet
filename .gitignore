@@ -25,3 +25,7 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+.vs/gmtk-jam-2019/v15/Server/sqlite3/storage.ide-wal
+.vs/gmtk-jam-2019/v15/Server/sqlite3/storage.ide-shm
+.vs/gmtk-jam-2019/v15/Server/sqlite3/storage.ide
+Assets/Art/blinking.meta

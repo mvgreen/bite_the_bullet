@@ -12,6 +12,7 @@ TagManager:
   - Catcher
   - Enemy
   - PlayerBullet
+  - Stone
   layers:
   - Default
   - TransparentFX
