@@ -65,7 +65,6 @@ public class EnemyPatternMovement : MonoBehaviour
     {
         if (col.tag == "Border Up" || col.tag == "Border Down" || col.tag == "Border Right" || col.tag == "Border Left")
         {
-            Debug.Log(col.tag);
             direction *= -1;
         }
     }

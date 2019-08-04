@@ -12,9 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 708c912670742d24ea16d1e8dac96956, type: 3}
   m_Name: VerticalLine
   m_EditorClassIdentifier: 
-  mode: 0
+  mode: 2
   orientation: 1
   direction: -1
   Period: 1
   Amplitude: 0.01
+  a: 0.5
+  b: 0
+  c: 0
   delta: 0.1
