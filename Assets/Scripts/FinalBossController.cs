@@ -98,12 +98,7 @@ public class FinalBossController : MonoBehaviour
             if(attackPhase == 0)
             {
                 attackPhase++;
-                Instantiate(bullets[3],transform.position,Quaternion.identity);
-                Instantiate(bullets[3],transform.position,Quaternion.identity);
-                Instantiate(bullets[3],transform.position,Quaternion.identity);
-                Instantiate(bullets[3],transform.position,Quaternion.identity);
-                Instantiate(bullets[3],transform.position,Quaternion.identity);
-                Instantiate(bullets[3],transform.position,Quaternion.identity);
+                //spawn enemy here
                 Teleport();
             }
         }

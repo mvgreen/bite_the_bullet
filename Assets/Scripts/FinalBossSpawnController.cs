@@ -12,38 +12,44 @@ public class FinalBossSpawnController : MonoBehaviour
     EnemyShooting shooter;
     GameObject player;
 
-    Vector2 newPos;
-    float XBorder = 7;
-    float YBorder = 4;
-    
-    public void SetNewTargetLocation()
-    {
-        Vector2 loc;
-        do
-        {
-            loc = 0.7f*Random.insideUnitCircle.normalized;
-            loc = loc + (Vector2)transform.position;
-        } while (Mathf.Abs(loc.x) >= XBorder || Mathf.Abs(loc.y) >= YBorder);
-        newPos = loc;
-    }
+    Vector3 speed;
 
     // Start is called before the first frame update
     void Start()
     {
         shooter = GetComponent<EnemyShooting>();
         player = GameObject.Find("Player");
+        speed = new Vector3(Random.Range(-2f,2f), Random.Range(-2f,2f), 0);
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.position = Vector2.Lerp(transform.position, newPos, 0.08f);
         //attacks
         cooldown -= Time.deltaTime;
         if(cooldown < 0)
         {
-            SetNewTargetLocation();
-            
+            speed += new Vector3(Random.Range(-.4f,.4f), Random.Range(-.4f,.4f),0);
+            if(Random.Range(1,8) < 2)
+            {
+                currentAttack = 6;
+                cooldown = 3f;
+                attackPhase = 0;
+            }
+            else if(Random.Range(1,8) < 2)
+            {
+                currentAttack = 5;
+                cooldown = 2f;
+                attackPhase = 0;
+            }
+            else 
+            if(Random.Range(1,5) < 2)
+            {
+                currentAttack = 4;
+                cooldown = 5f;
+                attackPhase = 0;
+            }
+            else 
             if(Random.Range(1,4) < 2)
             {
                 currentAttack = 3;
@@ -64,19 +70,42 @@ public class FinalBossSpawnController : MonoBehaviour
             }
         }
 
+        //movement
+        if(speed.magnitude > 1.2)
+        {
+            speed*=.9f;
+        }
+        if(transform.position.x<-8)
+        {
+            speed+=new Vector3(.1f,0,0);
+        }
+        if(transform.position.x>8)
+        {
+            speed+=new Vector3(-.1f,0,0);
+        }
+        if(transform.position.y<-4.5)
+        {
+            speed+=new Vector3(0,.1f,0);
+        }
+        if(transform.position.y>4.5)
+        {
+            speed+=new Vector3(0,-.1f,0);
+        }
+        transform.position += speed*Time.deltaTime;
+
         if(currentAttack == 1)
         {
-            if(attackPhase==0)
+            if(cooldown < 5 - attackPhase*0.05f)
             {
                 attackPhase++;
-                //shoot a bouncy
-                shooter.Shoot(180+attackPhase*9f, 4+attackPhase*0.01f,2, bullets[1]);
+                //shoot a spiral
+                shooter.Shoot(180+attackPhase*9f, 4+attackPhase*0.01f, bullets[0]);
             }
         }
 
         if(currentAttack == 2)
         {
-            if(attackPhase==0)
+            if(cooldown < 2 - attackPhase*0.4f)
             {
                 attackPhase++;
                 //shoot at player
@@ -86,20 +115,46 @@ public class FinalBossSpawnController : MonoBehaviour
 
         if(currentAttack == 3)
         {
-            if(attackPhase==0)
+            if(cooldown < 5 - attackPhase*0.4f)
             {
                 attackPhase++;
-                shooter.Sprinkle(6,Random.Range(0,360), 4, bullets[0]);
+                shooter.Sprinkle(10,180+attackPhase*9f, 4, bullets[0]);
             }
         }
 
-    }
-
-    void OnTriggerEnter2D(Collider2D col)
-    {
-        if(col.tag == "PlayerBullet")
+        if(currentAttack == 4)
         {
-            Destroy(gameObject);
+            if(cooldown < 5 - attackPhase*0.5f)
+            {
+                attackPhase++;
+                if(attackPhase%2==1)
+                {
+                    shooter.Sprinkle(8,180, 3, 20f, bullets[1]);
+                }
+                else
+                {
+                    shooter.Sprinkle(8,180, 3, -20f, bullets[1]);
+                }
+            }
+        }
+
+        if(currentAttack == 5)
+        {
+            if(cooldown < 2 - attackPhase*0.1f)
+            {
+                attackPhase++;
+                //shoot a spiral
+                shooter.Sprinkle(5, 180+attackPhase*29f, 2, bullets[0]);
+            }
+        }
+
+        if(currentAttack == 6)
+        {
+            if(attackPhase==0)
+            {
+                attackPhase++;
+                shooter.Sprinkle(12, Random.Range(0,180), 3, 3, bullets[2]);
+            }
         }
     }
 }

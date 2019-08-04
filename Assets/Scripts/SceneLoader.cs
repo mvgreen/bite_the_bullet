@@ -3,9 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SceneLoader : MonoBehaviour
-{
-    public string LevelName;
+public class SceneLoader : MonoBehaviour { 
+
+
+
+    private void Start()
+    {
+        
+    }
 
     public void LoadScene(string Scene)
     {
@@ -17,15 +22,4 @@ public class SceneLoader : MonoBehaviour
         Application.Quit();
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (LevelName == "Exit")
-        {
-            Application.Quit();
-        }
-        else
-        {
-            SceneManager.LoadScene(LevelName);
-        }
-    }
 }
