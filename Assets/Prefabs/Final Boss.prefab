@@ -782,6 +782,7 @@ MonoBehaviour:
   - {fileID: 8939605755086420970, guid: a97e6e2f2a3c47c45a610015719b5020, type: 3}
   - {fileID: 3808074168909602990, guid: 8f9bd2860b6aafa4c8b30fc6bb9a2b97, type: 3}
   - {fileID: 8939605755086420970, guid: 381c4dd7142ad1c40b99e78ce3db2b1b, type: 3}
+  - {fileID: 4400645740610475738, guid: 140dbfb0c189d964d998bc09c3998463, type: 3}
   currentAttack: 0
 --- !u!61 &3939549210815860867
 BoxCollider2D:
