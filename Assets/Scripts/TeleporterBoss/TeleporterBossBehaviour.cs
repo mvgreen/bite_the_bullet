@@ -13,6 +13,7 @@ public class TeleporterBossBehaviour : MonoBehaviour
     public GameObject player;
     public GameObject orbitPrefab;
     public GameObject markerPrefab;
+    public GameObject graphics;
 
     public float radialSpeedMultiplier = 1;
     public float sizeMultiplier = 3;
@@ -25,11 +26,11 @@ public class TeleporterBossBehaviour : MonoBehaviour
     public float time;
     private float nextShotTime;
     private float scaledTime;
+    private bool canShoot = true;
 
     private float currentSizeMultiplier;
     private float linearSpeedMultiplier;
-
-    private GameObject activeOrbit;
+    
     private GameObject activeMarker;
     private System.Random rand;
     private Rigidbody2D body;
@@ -42,11 +43,26 @@ public class TeleporterBossBehaviour : MonoBehaviour
         resetTime();
         linearSpeedMultiplier = radialSpeedMultiplier * sizeMultiplier;
         mode = BossMode.REST;
-        activeOrbit = null;
         rand = new System.Random();
         body = GetComponent<Rigidbody2D>();
         shootingController = GetComponent<BossShootingController>();
         currentSizeMultiplier = sizeMultiplier;
+    }
+
+    private void Update()
+    { 
+        graphics.transform.rotation = Quaternion.identity;
+        if (mode == BossMode.RUSH)
+            return;
+        body.velocity = Vector3.zero;
+        if (player.transform.position.x > transform.position.x)
+        {
+            graphics.transform.localScale = new Vector3(-3, 3, 2);
+        }
+        else
+        {
+            graphics.transform.localScale = new Vector3(3, 3, 2);
+        }
     }
 
     // Update is called once per frame
@@ -71,6 +87,19 @@ public class TeleporterBossBehaviour : MonoBehaviour
                 fixAim();
                 updateTime();
                 break;
+        }
+    }
+
+    internal void appear()
+    {
+        mode = BossMode.TELEPORTING;
+        Debug.Log("active marker is null: " + (activeMarker == null));
+        if (activeMarker != null)
+        {
+            Debug.Log("(" + activeMarker.transform.position.x + "; " + activeMarker.transform.position.y + ")");
+            transform.position = activeMarker.transform.position;
+            Destroy(activeMarker);
+            activeMarker = null;
         }
     }
 
@@ -104,15 +133,8 @@ public class TeleporterBossBehaviour : MonoBehaviour
                 activeMarker.transform.position = Vector3.down * 3.5f;
                 break;
         }
-    }
-
-
-    internal void prepareRevolve()
-    {
-        activeOrbit = Instantiate(orbitPrefab, player.transform.position, Quaternion.identity);
-        activeOrbit.GetComponent<PlayerFollower>().player = player;
-        currentSizeMultiplier = sizeMultiplier;
-        activeOrbit.transform.localScale = Vector3.one * currentSizeMultiplier;
+        canShoot = false;
+        Debug.Log("(" + activeMarker.transform.position.x + "; " + activeMarker.transform.position.y + ")");
     }
 
     public void enterArena()
@@ -124,24 +146,21 @@ public class TeleporterBossBehaviour : MonoBehaviour
     public void startRevolving()
     {
         mode = BossMode.REVOLVING;
+        currentSizeMultiplier = sizeMultiplier;
         resetTime();
         scaledTime = rand.Next() % 7;
+        canShoot = true;
     }
 
     public void blinkOnce()
     {
         mode = BossMode.TELEPORTING_BEFORE_RUSH;
-        transform.position = activeMarker.transform.position;
-        Destroy(activeMarker);
-        activeMarker = null;
-        Vector2 direction = new Vector2(player.transform.position.x - transform.position.x, player.transform.position.y - transform.position.y);
-        transform.up = direction;
+        fixAim();
+        canShoot = true;
     }
 
     public void hideOrbit()
     {
-        Destroy(activeOrbit);
-        activeOrbit = null;
     }
 
     public void shootStill()
@@ -149,14 +168,13 @@ public class TeleporterBossBehaviour : MonoBehaviour
         body.velocity = Vector2.zero;
         resetTime();
         mode = BossMode.SHOOT_STILL;
-        transform.position = activeMarker.transform.position;
-        Destroy(activeMarker);
-        activeMarker = null;
+        canShoot = true;
     }
 
     public void prepareRush()
     {
         mode = BossMode.AIM_RUSH;
+        canShoot = true;
     }
 
     public void aimRush()
@@ -174,7 +192,6 @@ public class TeleporterBossBehaviour : MonoBehaviour
 
     private void resetTime()
     {
-        Debug.Log("Reset");
         time = 0;
         nextShotTime = shootingCooldown * 5;
         scaledTime = 0;
@@ -182,7 +199,7 @@ public class TeleporterBossBehaviour : MonoBehaviour
 
     private void updateTime()
     {
-        if (mode == BossMode.TELEPORTING || mode == BossMode.REST)
+        if (mode == BossMode.TELEPORTING || mode == BossMode.REST || !canShoot)
         {
             return;
         }
@@ -226,20 +243,13 @@ public class TeleporterBossBehaviour : MonoBehaviour
     {
         updateTime();
         scaledTime += Time.deltaTime * defaultSpeed * radialSpeedMultiplier / currentSizeMultiplier;
-        if (activeOrbit == null)
-        {
-            mode = BossMode.TELEPORTING_BEFORE_RUSH;
-            return;
-        }
 
         float x = Mathf.Cos(scaledTime) * unitRadius * currentSizeMultiplier + player.transform.position.x;
         float y = Mathf.Sin(scaledTime) * unitRadius * currentSizeMultiplier + player.transform.position.y;
 
         transform.position = new Vector3(x, y, 0);
-        Vector2 direction = new Vector2(player.transform.position.x - transform.position.x, player.transform.position.y - transform.position.y);
-        transform.up = direction;
+        fixAim();
 
-        activeOrbit.transform.localScale = Vector3.one * currentSizeMultiplier;
         currentSizeMultiplier -= radiusReductionSpeed;
     }
 
