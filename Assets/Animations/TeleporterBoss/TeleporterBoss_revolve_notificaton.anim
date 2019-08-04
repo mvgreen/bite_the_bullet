@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: TeleporterBoss_enter
+  m_Name: TeleporterBoss_revolve_notificaton
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,15 +20,11 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 21300000, guid: 994d341b95567f54cae04ba63455b955, type: 3}
-    - time: 0.25
-      value: {fileID: 21300000, guid: aa3548b656b4d6e4486ffb483f5d9f79, type: 3}
-    - time: 0.5
-      value: {fileID: 21300000, guid: 6e7427e52e729fe46b587f5a950d97aa, type: 3}
-    - time: 0.75
-      value: {fileID: 21300000, guid: 994d341b95567f54cae04ba63455b955, type: 3}
-    - time: 0.98333335
-      value: {fileID: 21300000, guid: 994d341b95567f54cae04ba63455b955, type: 3}
+      value: {fileID: 21300000, guid: f7f3ea5a62e1f3d4eaa16cdb98028d08, type: 3}
+    - time: 0.06666667
+      value: {fileID: 21300000, guid: 9830543ca0537cd4eb0635a30c10923e, type: 3}
+    - time: 0.13333334
+      value: {fileID: 21300000, guid: 072be7faaa188e345ba1d8e71123a6ef, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -48,17 +44,15 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 21300000, guid: 994d341b95567f54cae04ba63455b955, type: 3}
-    - {fileID: 21300000, guid: aa3548b656b4d6e4486ffb483f5d9f79, type: 3}
-    - {fileID: 21300000, guid: 6e7427e52e729fe46b587f5a950d97aa, type: 3}
-    - {fileID: 21300000, guid: 994d341b95567f54cae04ba63455b955, type: 3}
-    - {fileID: 21300000, guid: 994d341b95567f54cae04ba63455b955, type: 3}
+    - {fileID: 21300000, guid: f7f3ea5a62e1f3d4eaa16cdb98028d08, type: 3}
+    - {fileID: 21300000, guid: 9830543ca0537cd4eb0635a30c10923e, type: 3}
+    - {fileID: 21300000, guid: 072be7faaa188e345ba1d8e71123a6ef, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 1
+    m_StopTime: 0.15
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -79,7 +73,7 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0
-    functionName: onEnteringArena
+    functionName: onRevlovingStarted
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

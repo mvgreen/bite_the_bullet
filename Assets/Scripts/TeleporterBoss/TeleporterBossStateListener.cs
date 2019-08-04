@@ -30,7 +30,7 @@ public class TeleporterBossStateListener : MonoBehaviour
 
     public void onBlinkPreparing()
     {
-        if (animator.GetInteger("mode") == 8)
+        if (animator.GetInteger("mode") == 8 || animator.GetInteger("mode") == 0)
             return;
         if (animator.GetInteger("mode") == 9)
             shipBehaviour.markBlinkPosition(2);
@@ -43,12 +43,6 @@ public class TeleporterBossStateListener : MonoBehaviour
         shipBehaviour.blinkOnce();
         int nextMode = rand.Next() % 10;
         animator.SetInteger("mode", nextMode);
-    }
-
-    public void onFastTeleport()
-    {
-        if (animator.GetInteger("mode") != 0)
-            shipBehaviour.hideOrbit();
     }
 
     public void onRush()
@@ -74,14 +68,13 @@ public class TeleporterBossStateListener : MonoBehaviour
         shipBehaviour.aimRush();
     }
 
-    public void onPreparingRevolve()
-    {
-        if (animator.GetInteger("mode") == 0)
-            shipBehaviour.prepareRevolve();
-    }
-
     public void onShootingCooldown()
     {
         shipBehaviour.stopShooting();
+    }
+
+    public void onAppear()
+    {
+        shipBehaviour.appear();
     }
 }
