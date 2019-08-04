@@ -303,7 +303,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score: {fileID: 0}
-  health: 1000
+  health: 400
+  bossIndex: 5
 --- !u!95 &1204255153341266883
 Animator:
   serializedVersion: 3

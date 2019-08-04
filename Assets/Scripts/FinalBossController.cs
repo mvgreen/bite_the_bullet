@@ -30,13 +30,13 @@ public class FinalBossController : MonoBehaviour
         if(cooldown < 0)
         {
             speed += new Vector3(Random.Range(-.4f,.4f), Random.Range(-.4f,.4f),0);
-            if(Random.Range(1,8) < 2)
+            if(Random.Range(1,7) < 2)
             {
                 currentAttack = 6;
                 cooldown = 3f;
                 attackPhase = 0;
             }
-            else if(Random.Range(1,8) < 2)
+            else if(Random.Range(1,6) < 2)
             {
                 currentAttack = 5;
                 cooldown = 2f;
@@ -59,7 +59,7 @@ public class FinalBossController : MonoBehaviour
             else if(Random.Range(1,3) < 2)
             {
                 currentAttack = 1;
-                cooldown = 5f;
+                cooldown = 2f;
                 attackPhase = 0;
             }
             else
@@ -94,57 +94,55 @@ public class FinalBossController : MonoBehaviour
         transform.position += speed*Time.deltaTime;
 
         if(currentAttack == 1)
-        {
-            if(cooldown < 5 - attackPhase*0.05f)
+        {// teleport and spawn
+            if(attackPhase == 0)
             {
                 attackPhase++;
-                //shoot a spiral
-                shooter.Shoot(180+attackPhase*9f, 4+attackPhase*0.01f, bullets[0]);
+                //spawn enemy here
+                Teleport();
             }
         }
 
         if(currentAttack == 2)
-        {
-            if(cooldown < 2 - attackPhase*0.4f)
+        {// teleport and leave bouncies
+            if(attackPhase == 0)
             {
                 attackPhase++;
-                //shoot at player
-                shooter.Shoot(-(Mathf.Atan2(player.transform.position.y-transform.position.y, player.transform.position.x-transform.position.x)*180 / Mathf.PI)+ 90, 4+attackPhase*0.01f, bullets[0]);
+                shooter.Sprinkle(18, Random.Range(0,180), 2, 2, bullets[2]);
+                Teleport();
             }
         }
 
         if(currentAttack == 3)
         {
-            if(cooldown < 5 - attackPhase*0.4f)
+            if(cooldown%0.3<0.1)
             {
                 attackPhase++;
-                shooter.Sprinkle(10,180+attackPhase*9f, 4, bullets[0]);
+                shooter.Sprinkle(10,180+attackPhase*9f, 2.4f, bullets[0]);
             }
         }
 
         if(currentAttack == 4)
-        {
+        {// a lot of jumps and spread attacks
             if(cooldown < 5 - attackPhase*0.5f)
             {
                 attackPhase++;
-                if(attackPhase%2==1)
-                {
-                    shooter.Sprinkle(8,180, 3, 20f, bullets[1]);
-                }
-                else
-                {
-                    shooter.Sprinkle(8,180, 3, -20f, bullets[1]);
-                }
+                shooter.Shoot(-(Mathf.Atan2(player.transform.position.y-transform.position.y, player.transform.position.x-transform.position.x)*180 / Mathf.PI)+ 90, 4+attackPhase*0.01f, bullets[0]);
+                shooter.Shoot(-(Mathf.Atan2(player.transform.position.y-transform.position.y, player.transform.position.x-transform.position.x)*200 / Mathf.PI)+ 90, 4+attackPhase*0.01f, bullets[0]);
+                shooter.Shoot(-(Mathf.Atan2(player.transform.position.y-transform.position.y, player.transform.position.x-transform.position.x)*220 / Mathf.PI)+ 90, 4+attackPhase*0.01f, bullets[0]);
+                shooter.Shoot(-(Mathf.Atan2(player.transform.position.y-transform.position.y, player.transform.position.x-transform.position.x)*160 / Mathf.PI)+ 90, 4+attackPhase*0.01f, bullets[0]);
+                shooter.Shoot(-(Mathf.Atan2(player.transform.position.y-transform.position.y, player.transform.position.x-transform.position.x)*140 / Mathf.PI)+ 90, 4+attackPhase*0.01f, bullets[0]);
+                Teleport();
             }
         }
 
         if(currentAttack == 5)
         {
-            if(cooldown < 2 - attackPhase*0.1f)
-            {
+            if(cooldown < 2 - attackPhase*0.14f)
+            {//double sprinkle
                 attackPhase++;
-                //shoot a spiral
                 shooter.Sprinkle(5, 180+attackPhase*29f, 2, bullets[0]);
+                shooter.Sprinkle(5, 178+attackPhase*29f, 2, bullets[0]);
             }
         }
 
@@ -156,5 +154,15 @@ public class FinalBossController : MonoBehaviour
                 shooter.Sprinkle(12, Random.Range(0,180), 3, 3, bullets[2]);
             }
         }
+    }
+
+    void Teleport()
+    {
+        Vector2 potentialPos = new Vector2(Random.Range(-7f,7f), Random.Range(-4f,4f));
+        while(Vector2.Distance(potentialPos,player.transform.position) < 3)
+        {
+            potentialPos = new Vector2(Random.Range(-7f,7f), Random.Range(-4f,4f));
+        }
+        transform.position = potentialPos;
     }
 }

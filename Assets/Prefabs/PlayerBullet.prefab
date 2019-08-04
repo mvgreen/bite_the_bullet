@@ -194,7 +194,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   direction: {x: 0, y: 0}
-  bulletSmoke: {fileID: 0}
+  bulletSmoke: {fileID: 3117174115496406199, guid: ec2113c1bf5963d49a7c262374b17170,
+    type: 3}
   speed: 7
 --- !u!50 &8939605755086420759
 Rigidbody2D:
