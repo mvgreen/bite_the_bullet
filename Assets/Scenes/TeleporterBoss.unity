@@ -571,7 +571,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score: {fileID: 2104911234}
-  health: 250
+  health: 350
+  bossIndex: 0
 --- !u!114 &1599801435 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8692885445359551840, guid: 40cc7d248b7ca194a85c5a2a0bf63f9f,
