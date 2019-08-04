@@ -485,7 +485,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1014134515}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
@@ -785,26 +785,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1115693574}
   m_CullTransparentMesh: 0
---- !u!1 &1538379227 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1764743531653146995, guid: 9142df511139fde449bedd11d6f6f30d,
-    type: 3}
-  m_PrefabInstance: {fileID: 1764743531651488619}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1538379228
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1538379227}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ab1a8a844403484786616c735d7982e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  messages: []
-  bullets: []
 --- !u!1 &2009421708
 GameObject:
   m_ObjectHideFlags: 0
@@ -1160,14 +1140,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1858834214, guid: 6d6fdc152ff17594dadd3ad18a04f7d6, type: 3}
-      propertyPath: messages.Array.size
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 1858834214, guid: 6d6fdc152ff17594dadd3ad18a04f7d6, type: 3}
-      propertyPath: bullets.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1858834214, guid: 6d6fdc152ff17594dadd3ad18a04f7d6, type: 3}
       propertyPath: messages.Array.data[0]
       value: 
       objectReference: {fileID: 1018608430}
@@ -1191,15 +1163,5 @@ PrefabInstance:
       propertyPath: messages.Array.data[5]
       value: 
       objectReference: {fileID: 443712047}
-    - target: {fileID: 1858834214, guid: 6d6fdc152ff17594dadd3ad18a04f7d6, type: 3}
-      propertyPath: bullets.Array.data[0]
-      value: 
-      objectReference: {fileID: 8939605755086420970, guid: a97e6e2f2a3c47c45a610015719b5020,
-        type: 3}
-    - target: {fileID: 1858834214, guid: 6d6fdc152ff17594dadd3ad18a04f7d6, type: 3}
-      propertyPath: bullets.Array.data[1]
-      value: 
-      objectReference: {fileID: 3808074168909602990, guid: f29607b29e29faa45a15957a166d7c5f,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6d6fdc152ff17594dadd3ad18a04f7d6, type: 3}

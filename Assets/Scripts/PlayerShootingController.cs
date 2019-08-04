@@ -56,4 +56,13 @@ public class PlayerShootingController : MonoBehaviour
         currentNumber++;
         text.text = "" + currentNumber;
     }
+
+    public void Empty()
+    {
+        if(isCharged)
+        {
+            isCharged = false;
+            anim.SetTrigger("Fire");
+        }
+    }
 }

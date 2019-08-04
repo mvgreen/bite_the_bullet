@@ -69,12 +69,15 @@ public class TutorialBossControler : MonoBehaviour
         if(phase == 2)
         {
             messages[2].enabled = true;
-            Instantiate(bullets[0], player.position, Quaternion.identity);
+            bullet = Instantiate(bullets[0], player.position, Quaternion.identity).transform;
+            bullet.GetComponent<SpriteRenderer>().enabled=false;
+            bullet.localScale *= 2;
             if(Input.GetButtonDown("Fire"))
             {
                 messages[2].enabled = false;
                 phase = 3;
                 bulletCounter = 0;
+                player.GetComponent<PlayerShootingController>().Empty();
             }
         }
         if(phase == 3)
@@ -82,8 +85,9 @@ public class TutorialBossControler : MonoBehaviour
             messages[3].enabled = true;
             if(bulletCounter == 0)
             {
-                bullet = Instantiate(bullets[1],player.position, Quaternion.identity);
+                bullet = Instantiate(bullets[1],player.position, Quaternion.identity).transform;
                 bulletCounter++;
+                player.GetComponent<PlayerShootingController>().Empty();
             }
             if(bulletCounter>0)
             {
@@ -92,6 +96,31 @@ public class TutorialBossControler : MonoBehaviour
                     messages[3].enabled = false;
                     phase = 4;
                 }
+            }
+        }
+        if(phase == 4)
+        {
+            messages[4].enabled = true;
+            
+            if(Input.GetButtonDown("Fire"))
+            {
+                messages[4].enabled = false;
+                phase = 5;
+            }
+        }
+        if(phase == 5)
+        {
+            messages[5].enabled = true;
+            countdown-=Time.deltaTime;
+            if(countdown<0)
+            {
+                shooter.Shoot(-(Mathf.Atan2(player.transform.position.y-transform.position.y, player.transform.position.x-transform.position.x)*180 / Mathf.PI)+ 90, 4, bullets[0]);
+                shooter.Shoot(-(Mathf.Atan2(player.transform.position.y-transform.position.y, player.transform.position.x-transform.position.x)*200 / Mathf.PI)+ 90, 4, bullets[0]);
+                shooter.Shoot(-(Mathf.Atan2(player.transform.position.y-transform.position.y, player.transform.position.x-transform.position.x)*160 / Mathf.PI)+ 90, 4, bullets[0]);
+                shooter.Shoot(-(Mathf.Atan2(player.transform.position.y-transform.position.y, player.transform.position.x-transform.position.x)*220 / Mathf.PI)+ 90, 4, bullets[0]);
+                shooter.Shoot(-(Mathf.Atan2(player.transform.position.y-transform.position.y, player.transform.position.x-transform.position.x)*140 / Mathf.PI)+ 90, 4, bullets[0]);
+                countdown=0.4f;
+                bulletCounter++;
             }
         }
     }
