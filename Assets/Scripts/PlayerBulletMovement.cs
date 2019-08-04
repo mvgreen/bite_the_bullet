@@ -38,6 +38,11 @@ public class PlayerBulletMovement : MonoBehaviour
             Instantiate(bulletSmoke, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
+        if (col.tag == "Stone")
+        {
+            Instantiate(bulletSmoke, transform.position, Quaternion.identity);
+            Destroy(gameObject);
+        }
         if(col.tag == "Border Up" || col.tag == "Border Down")
         {
             body.velocity = new Vector2(body.velocity.x, -body.velocity.y);
