@@ -9,7 +9,6 @@ public class BigMomaController : MonoBehaviour
     public Transform[] MomaSpawnPoints;
     public GameObject Youngling;
 
-    public MovementPattern MP;
 
     private int CurrentSpawnPoint;
 
@@ -27,28 +26,7 @@ public class BigMomaController : MonoBehaviour
 
     public void SpawnYounglings1()
     {
-        switch (CurrentSpawnPoint)
-        {
-            case 0:
-                MP.orientation = MovementPattern.Orientations.horizontal;
-                MP.a = -Mathf.Abs(MP.a);
-                break;
-            case 1:
-                MP.orientation = MovementPattern.Orientations.vertical;
-                MP.a = -Mathf.Abs(MP.a);
-                break;
-            case 2:
-                MP.orientation = MovementPattern.Orientations.horizontal;
-                MP.a = Mathf.Abs(MP.a);
-                break;
-            case 3:
-                MP.orientation = MovementPattern.Orientations.vertical;
-                MP.a = Mathf.Abs(MP.a);
-                break;
-        }
-        Youngling.GetComponent<EnemyPatternMovement>().MP = MP;
         Instantiate(Youngling, spawnPoint1.transform.position, Quaternion.identity);
-        MP.InvertDirection();
         Instantiate(Youngling, spawnPoint2.transform.position, Quaternion.identity);
         YounglingCount += 2;
         UpdateYounglignsCount();
@@ -80,7 +58,7 @@ public class BigMomaController : MonoBehaviour
     public void Roll()
     {
         UnityEngine.Random.InitState(System.DateTime.Now.Millisecond);
-        int rand = UnityEngine.Random.Range(0, 100);
+        float rand = 100 - YounglingCount * 15f;
         GetComponent<Animator>().SetFloat("Roll", rand);
     }
 

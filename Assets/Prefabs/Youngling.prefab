@@ -91,11 +91,11 @@ GameObject:
   - component: {fileID: 5534011125568340802}
   - component: {fileID: 5534011125568340801}
   - component: {fileID: 5534011125568340800}
-  - component: {fileID: 5534011125568340807}
   - component: {fileID: 5534011125568340806}
   - component: {fileID: 3194929726108797609}
   - component: {fileID: 271233147716217562}
   - component: {fileID: -7120519127971717949}
+  - component: {fileID: 5475962875506541177}
   m_Layer: 0
   m_Name: Youngling
   m_TagString: Enemy
@@ -111,7 +111,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5534011125568340805}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.01, y: 3.08, z: -0.7471668}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_Children:
   - {fileID: 5534011124351496399}
@@ -181,22 +181,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   score: {fileID: 0}
   health: 5
---- !u!114 &5534011125568340807
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5534011125568340805}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2474aa3f7c1ad10469dbc98da17f3295, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MP: {fileID: 11400000, guid: c97aaed791a1b1f428da56d9a8a631fb, type: 2}
-  orientation: 0
-  mode: 2
-  MovementAxis: {x: 0, y: 0, z: 0}
 --- !u!114 &5534011125568340806
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -264,3 +248,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91d5a715ab2214e4cb3798c33148bc7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5475962875506541177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5534011125568340805}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0667da5bfc14bc94488139984b939749, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  XBorder: 8.2
+  YBorder: 4.75
+  newPos: {x: 0, y: 0}
+  RelocationTimer: 0.4
+  Timer: 0
