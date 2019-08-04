@@ -71,7 +71,7 @@ public class Boss1Controller : MonoBehaviour
         }
 
         //movement
-        if(speed.magnitude > 1.6)
+        if(speed.magnitude > 1.2)
         {
             speed*=.9f;
         }
