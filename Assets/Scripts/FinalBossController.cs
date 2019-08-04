@@ -46,14 +46,14 @@ public class FinalBossController : MonoBehaviour
             if(Random.Range(1,5) < 2)
             {
                 currentAttack = 4;
-                cooldown = 5f;
+                cooldown = 3f;
                 attackPhase = 0;
             }
             else 
             if(Random.Range(1,4) < 2)
             {
                 currentAttack = 3;
-                cooldown = 5f;
+                cooldown = 3f;
                 attackPhase = 0;
             }
             else if(Random.Range(1,3) < 2)
@@ -114,17 +114,17 @@ public class FinalBossController : MonoBehaviour
         }
 
         if(currentAttack == 3)
-        {
+        {// hyperspam
             if(cooldown%0.3<0.1)
             {
                 attackPhase++;
-                shooter.Sprinkle(10,180+attackPhase*9f, 2.4f, bullets[0]);
+                shooter.Sprinkle(6,180+attackPhase*9f, 2.4f, bullets[0]);
             }
         }
 
         if(currentAttack == 4)
         {// a lot of jumps and spread attacks
-            if(cooldown < 5 - attackPhase*0.5f)
+            if(cooldown < 3 - attackPhase*0.5f)
             {
                 attackPhase++;
                 shooter.Shoot(-(Mathf.Atan2(player.transform.position.y-transform.position.y, player.transform.position.x-transform.position.x)*180 / Mathf.PI)+ 90, 4+attackPhase*0.01f, bullets[0]);
@@ -148,10 +148,17 @@ public class FinalBossController : MonoBehaviour
 
         if(currentAttack == 6)
         {
-            if(attackPhase==0)
+            if(cooldown%0.5<0.12)
             {
+                if(attackPhase%2==1)
+                {
+                    shooter.Shoot(90+attackPhase*59, 3, 30f, bullets[1]);
+                }
+                else
+                {
+                    shooter.Shoot(90-attackPhase*59, 3, -30f, bullets[1]);
+                }
                 attackPhase++;
-                shooter.Sprinkle(12, Random.Range(0,180), 3, 3, bullets[2]);
             }
         }
     }
@@ -159,7 +166,7 @@ public class FinalBossController : MonoBehaviour
     void Teleport()
     {
         Vector2 potentialPos = new Vector2(Random.Range(-7f,7f), Random.Range(-4f,4f));
-        while(Vector2.Distance(potentialPos,player.transform.position) < 3)
+        while(Vector2.Distance(potentialPos,player.transform.position) < 5)
         {
             potentialPos = new Vector2(Random.Range(-7f,7f), Random.Range(-4f,4f));
         }
