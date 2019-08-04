@@ -64,14 +64,18 @@ public class TutorialBossControler : MonoBehaviour
             {
                 phase = 2;
                 messages[1].enabled = false;
+                bulletCounter = 0;
             }
         }
         if(phase == 2)
         {
             messages[2].enabled = true;
-            bullet = Instantiate(bullets[0], player.position, Quaternion.identity).transform;
-            bullet.GetComponent<SpriteRenderer>().enabled=false;
-            bullet.localScale *= 2;
+            if(bulletCounter<10){
+                bullet = Instantiate(bullets[0], player.position, Quaternion.identity).transform;
+                bullet.GetComponent<SpriteRenderer>().enabled=false;
+                bullet.localScale *= 2;
+                bulletCounter++;
+            }
             if(Input.GetButtonDown("Fire"))
             {
                 messages[2].enabled = false;
