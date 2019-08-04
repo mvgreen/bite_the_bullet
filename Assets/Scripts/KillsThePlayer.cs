@@ -18,6 +18,7 @@ public class KillsThePlayer : MonoBehaviour
         if(col.tag == "Player" && iframe < 0)
         {
             col.GetComponent<PlayerShootingController>().Die();
+            Destroy(gameObject);
         }
     }
 }
