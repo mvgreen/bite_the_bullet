@@ -61,4 +61,18 @@ public class EnemyShooting : MonoBehaviour
             bullet.GetComponent<EnemyBullet>().life = life;
         }
     }
+
+    public void Cone(int spread, float angle, float speed, float angularSpeed, float angularStep, float linearStep, float coneSize, GameObject bulletPrefab)
+    {
+        for (int i = 0; i < spread; i++)
+        {
+            Vector2 direction = new Vector2(Mathf.Sin((angle + (coneSize / spread) * i) * Mathf.Deg2Rad), Mathf.Cos((angle + (coneSize / spread) * i) * Mathf.Deg2Rad));
+            GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
+            bullet.transform.eulerAngles = new Vector3(0, 0, angle + (coneSize / spread) * i);
+            bullet.GetComponent<EnemyBullet>().speed = speed;
+            bullet.GetComponent<EnemyBullet>().angularSpeed = angularSpeed;
+            angularSpeed -= angularStep;
+            speed += linearStep;
+        }
+    }
 }
