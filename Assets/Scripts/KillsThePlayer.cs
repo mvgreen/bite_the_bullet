@@ -6,6 +6,7 @@ public class KillsThePlayer : MonoBehaviour
 {
     // iframe prevents the player from being instakilled by his own bullets
     float iframe = 0.5f;
+    public GameObject bulletSmoke;
 
     // Update is called once per frame
     void Update()
@@ -18,6 +19,7 @@ public class KillsThePlayer : MonoBehaviour
         if(col.tag == "Player" && iframe < 0)
         {
             col.GetComponent<PlayerShootingController>().Die();
+            Instantiate(bulletSmoke, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
     }

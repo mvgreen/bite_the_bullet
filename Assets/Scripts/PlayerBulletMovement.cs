@@ -6,6 +6,7 @@ public class PlayerBulletMovement : MonoBehaviour
 {
 
     public Vector2 direction;
+    public GameObject bulletSmoke;
     public float speed = 7;
     int damage = 10;
 
@@ -32,6 +33,7 @@ public class PlayerBulletMovement : MonoBehaviour
         if(col.tag == "Enemy")
         {
             col.GetComponent<EnemyHealthHandling>().health -= damage;
+            Instantiate(bulletSmoke, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
         if(col.tag == "Border Up" || col.tag == "Border Down")
